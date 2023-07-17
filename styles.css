@@ -1,0 +1,23 @@
+* {
+    box-sizing: border-box;
+}
+#gameWindowContainer{
+    display: flex;
+    height: 100%;
+    width: auto;
+    justify-content: center;
+}
+#gameWindow{
+    margin-top: 150px;
+    width:600px;
+    height: 600px;
+    display: flex;
+    border: 2px solid red;
+    justify-content: center; 
+}
+#mainMan{
+    width:16px;
+    height: 32px;
+    background-color: blueviolet;
+    align-self: flex-end;
+}
