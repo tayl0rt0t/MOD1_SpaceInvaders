@@ -13,11 +13,19 @@
     height: 600px;
     display: flex;
     border: 2px solid red;
-    justify-content: center; 
+    justify-content: center;  
 }
 #mainMan{
     width:16px;
     height: 32px;
     background-color: blueviolet;
     align-self: flex-end;
+    position: absolute;
+}
+#alien{
+    width:32px;
+    height: 16px;
+    background-color: green;
+    align-self: flex-start;
+    position: absolute;
 }
