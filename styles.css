@@ -1,31 +1,14 @@
 * {
     box-sizing: border-box;
 }
-#gameWindowContainer{
+#screenContainer{
     display: flex;
-    height: 100%;
-    width: auto;
     justify-content: center;
 }
-#gameWindow{
-    margin-top: 150px;
-    width:600px;
-    height: 600px;
-    display: flex;
-    border: 2px solid red;
-    justify-content: center;  
-}
-#mainMan{
-    width:16px;
-    height: 32px;
-    background-color: blueviolet;
-    align-self: flex-end;
+#title{
     position: absolute;
+    margin-top:20px;
 }
-#alien{
-    width:32px;
-    height: 16px;
-    background-color: green;
-    align-self: flex-start;
-    position: absolute;
+#screen{
+    margin-top: 100px;
 }

@@ -1,28 +1,99 @@
-const player = document.getElementById("mainMan");
-const gameWindow = document.getElementById("gameWindow");
+/** @type {HTMLCanvasElement} */
+const canvas = document.getElementById("screen");
+const ctx = canvas.getContext('2d');
 
-let changeX = 5;
-window.addEventListener("keydown", function(event){
-    switch(event.key){
-        case 'ArrowLeft':
-            player.style.left = (parseInt(getComputedStyle(player).left) - changeX) + "px";
-            console.log(event.key);
-            break;
-        case 'ArrowRight':
-            player.style.left = (parseInt(getComputedStyle(player).left) + changeX) + "px";
-            console.log(event.key);
-            break;
+
+//setting up drawloop that holds functs
+function draw(){
+    clear();
+    P1.move(P1);
+    // checkBounds();
+    P1.drawPlayer(P1);
+}
+//variables 
+let leftPressed = false;
+let rightPressed = false;
+let speed = 5;
+let playerWidth = 32;
+let playerHeight = 32;
+let playerX = 400;
+let playerY = 568;
+let player = (playerX,playerY,playerWidth,playerHeight);
+//functs to run in drawloop
+function clear(){
+    ctx.fillStyle = 'black';
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+}
+
+
+//event listeners
+document.body.addEventListener('keydown',function(event){
+    let key = event.key;
+    if(key == "ArrowLeft"){
+        leftPressed = true;
+    }
+    if(key == "ArrowRight"){
+        rightPressed = true;
+    }
+})
+document.body.addEventListener('keyup',function(event){
+    let key = event.key;
+    if(key == 'ArrowLeft'){
+        leftPressed = false;
+    }
+    if(key == 'ArrowRight'){
+        rightPressed = false;
     }
     
 })
+//classes
+class Player {
+    constructor(lives){
+        lives = this.lives;
+        lives = 3;
+    }
+    drawPlayer(player){
+        ctx.fillStyle = "green";
+        ctx.fillRect(playerX,playerY,playerWidth,playerHeight);
+        
+    }
+    move(player){
+            if(leftPressed){
+               playerX = playerX - speed;
+            }
+            if(rightPressed){
+                playerX = playerX + speed;
+            }
+        
+        //boundaries?
+            
+            if (playerX < playerWidth - 32){
+                playerX = playerWidth - 32;
+            }
+            if (playerX > canvas.width -32){
+                playerX = canvas.width - 32;
+            }
+        }
+    
+    shoot(player){
 
+    }
+    die(player){
+        //if alien bullet hits player
+        //if alien touches player
+        lives--;
+    }
+    respawn(player){
+        //respawn if lives >= 1
+    }
+    gameOver(player){
+        if(lives < 0){
+            console.log('Mission Failed');
+        }
+        //if aliens dead, win screen
+    }
+}
+const P1 = new Player;
 
-// class Player {
-//     constructor(shields){
-//         this.shields = shields;
-//         this.shields = 100;
-//     }
-//     move(player){
-
-//     }
-// }
+// running drawLoop
+setInterval(draw, 1000/60);
