@@ -1,29 +1,26 @@
+import BulletController from "./bulletController.js";
+
 /** @type {HTMLCanvasElement} */
 const canvas = document.getElementById("screen");
 const ctx = canvas.getContext('2d');
 
 
-//setting up drawloop that holds functs
-function draw(){
-    clear();
-    P1.move(P1);
-    // checkBounds();
-    P1.drawPlayer(P1);
-}
 //variables 
 let leftPressed = false;
 let rightPressed = false;
+let spacePressed = false;
 let speed = 5;
 let playerWidth = 32;
 let playerHeight = 32;
 let playerX = 400;
 let playerY = 568;
-let player = (playerX,playerY,playerWidth,playerHeight);
+
 //functs to run in drawloop
 function clear(){
     ctx.fillStyle = 'black';
     ctx.fillRect(0,0,canvas.width,canvas.height);
 }
+
 
 
 //event listeners
@@ -46,18 +43,35 @@ document.body.addEventListener('keyup',function(event){
     }
     
 })
+document.body.addEventListener('keydown',function(event){
+    let key = event.code;
+    if(key == "Space"){
+        spacePressed = true;
+        console.log(key)
+    }
+})
+document.body.addEventListener('keyup',function(event){
+    let key = event.code;
+    if(key == 'Space'){
+        spacePressed = false;
+        console.log('space up');
+    }
+    
+})
 //classes
 class Player {
-    constructor(lives){
+    constructor(bulletController,lives){
         lives = this.lives;
         lives = 3;
+        this.bulletController = bulletController;
+        
     }
-    drawPlayer(player){
+    drawPlayer(){
         ctx.fillStyle = "green";
         ctx.fillRect(playerX,playerY,playerWidth,playerHeight);
         
     }
-    move(player){
+    move(){
             if(leftPressed){
                playerX = playerX - speed;
             }
@@ -65,7 +79,7 @@ class Player {
                 playerX = playerX + speed;
             }
         
-        //boundaries?
+        //boundaries
             
             if (playerX < playerWidth - 32){
                 playerX = playerWidth - 32;
@@ -75,8 +89,15 @@ class Player {
             }
         }
     
-    shoot(player){
-
+    shoot(){
+        if(spacePressed){
+            console.log('bang');
+            const delay = 7;
+            const bulletX = playerX + playerWidth / 2;
+            const bulletY = playerY;
+            this.bulletController.shoot(bulletX,bulletY,speed * 2, delay);
+        }
+        
     }
     die(player){
         //if alien bullet hits player
@@ -93,7 +114,16 @@ class Player {
         //if aliens dead, win screen
     }
 }
-const P1 = new Player;
+const bulletController = new BulletController(canvas);
+const P1 = new Player(bulletController);
 
+//setting up drawloop that holds functs
+function draw(){
+    clear();
+    P1.move();
+    bulletController.draw(ctx);
+    P1.drawPlayer();
+    P1.shoot();
+}
 // running drawLoop
 setInterval(draw, 1000/60);
