@@ -119,7 +119,7 @@ export default class Player {
 const bulletController = new BulletController(canvas);
 const P1 = new Player(bulletController);
 const A1 = new Alien();
-const C1 = new AlienController(canvas);
+const C1 = new AlienController(canvas,bulletController);
 //setting up drawloop that holds functs
 function draw(){
     clear();

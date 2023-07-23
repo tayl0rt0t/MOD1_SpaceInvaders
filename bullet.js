@@ -14,4 +14,15 @@ export default class Bullet{
         this.y -= this.speed;
         ctx.fillRect(this.x, this.y, this.width, this.height)
     }
+    collideWith(alien){
+        if(this.x + this.width > alien.x &&
+            this.x < alien.x + alien.width &&
+            this.y + this.height > alien.y &&
+            this.y < alien.y + alien.height){
+                return true;
+            }
+            else{
+                return false;
+            }
+    }
 }

@@ -31,4 +31,14 @@ export default class BulletController{
     bounds(bullet){
         return bullet.y <= -bullet.height;
     }
+    collideWith(alien){
+        const bulletHit = this.bullets.findIndex((bullet)=>
+        bullet.collideWith(alien)
+        );
+        if(bulletHit >= 0){
+            this.bullets.splice(bulletHit,1);
+            return true;
+        }
+        return false;
+    }
 }

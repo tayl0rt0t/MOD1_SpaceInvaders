@@ -16,14 +16,16 @@ export default class AlienController{
     defaultYSpeed = 1;
     moveDownTimerDefault = 30;
     moveDownTimer = this.moveDownTimerDefault;
-    constructor(canvas){
+    constructor(canvas,bulletController){
         this.canvas = canvas;
+        this.bulletController = bulletController;
         this.createEnemies();
     }
     
     draw(ctx){
         this.decrementMoveDownTimer();
         this.updateDirection();
+        this.collisions();
         this.drawEnemies(ctx);
         this.resetMoveDownTimer();
         //console.log(this.yTimer);
@@ -88,6 +90,16 @@ export default class AlienController{
             enemy.move(this.xSpeed, this.ySpeed);
             enemy.draw(ctx)
         }); 
+    }
+    collisions(){
+      this.enemyRows.forEach(enemyRow => {
+        enemyRow.forEach((enemy, enemyIndex) => {
+            if(this.bulletController.collideWith(enemy)){
+                enemyRow.splice(enemyIndex,1);
+            };
+        });
+      });
+      this.enemyRows = this.enemyRows.filter(enemyRow => enemyRow.length > 0)  
     }
     createEnemies(){
         this.enemyArr.forEach((row,rowIndex)=>{

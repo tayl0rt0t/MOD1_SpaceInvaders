@@ -1,4 +1,4 @@
-
+import Bullet from "./bullet.js";
 
 export default class Alien{
     constructor(x,y,width,height,canvas){
@@ -18,5 +18,5 @@ export default class Alien{
         this.x += xSpeed;
         this.y += ySpeed;
     }
-    die(){}
+    
 }
