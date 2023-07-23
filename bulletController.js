@@ -19,7 +19,13 @@ export default class BulletController{
               const index = this.bullets.indexOf(bullet);
               this.bullets.splice(index,1);  
             }
+            if(this.bullets.length <= 1){
             bullet.draw(ctx)
+            }
+            if(this.bullets.length > 1){
+                const index = this.bullets.indexOf(bullet);
+                this.bullets.splice(index,1);
+            }
         });
     }
     bounds(bullet){

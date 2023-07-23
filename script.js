@@ -1,5 +1,6 @@
 import BulletController from "./bulletController.js";
-
+import Alien from "./alien.js";
+import AlienController from "./alienController.js";
 /** @type {HTMLCanvasElement} */
 const canvas = document.getElementById("screen");
 const ctx = canvas.getContext('2d');
@@ -58,8 +59,8 @@ document.body.addEventListener('keyup',function(event){
     }
     
 })
-//classes
-class Player {
+//player Class
+export default class Player {
     constructor(bulletController,lives){
         lives = this.lives;
         lives = 3;
@@ -114,9 +115,11 @@ class Player {
         //if aliens dead, win screen
     }
 }
+//const bulletController = new BulletController(canvas);
 const bulletController = new BulletController(canvas);
 const P1 = new Player(bulletController);
-
+const A1 = new Alien();
+const C1 = new AlienController(canvas);
 //setting up drawloop that holds functs
 function draw(){
     clear();
@@ -124,6 +127,8 @@ function draw(){
     bulletController.draw(ctx);
     P1.drawPlayer();
     P1.shoot();
+    // A1.draw(ctx);
+    C1.draw(ctx);
 }
 // running drawLoop
 setInterval(draw, 1000/60);
