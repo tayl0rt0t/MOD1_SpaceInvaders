@@ -40,3 +40,13 @@ https://www.youtube.com/watch?v=i7FzA4NavDs&t=1447s   How to shoot bullets in Ja
 <br>
 <br>
 https://www.youtube.com/watch?v=qCBiKJbLcFI&t=1023s  Coding Space Invaders. This helped a lot with arrays and timing.
+<br>
+<br>
+#Future Updates
+<br>
+<br>
+A scoring functionality.
+<br>
+A 'remaining lives' functionality
+<br>
+More aggressive enemys (aliens shoot)
