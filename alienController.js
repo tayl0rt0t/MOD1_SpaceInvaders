@@ -12,8 +12,8 @@ export default class AlienController{
     direction = moving.right;
     xSpeed = 0;
     ySpeed = 0;
-    defaultXSpeed = 1.5;
-    defaultYSpeed = 1.5;
+    defaultXSpeed = 1;
+    defaultYSpeed = 1;
     moveDownTimerDefault = 30;
     moveDownTimer = this.moveDownTimerDefault;
     constructor(canvas,bulletController){
