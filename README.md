@@ -7,6 +7,11 @@
 Welcome to Space Invaders! Earth is in trouble. Those pesky UAPs (aka UFOs) have been seen by pilots and other observers for centuries. Solid proof of their existence has been near impossible to come by, grainy and blurry photos have caused doubts about their existence. But, today is the day. They're coming for us, and they do not come in peace. It's up to you to save the world with your keyboard. BATTLESTATIONS! GET READY, JUST LIKE WE TRAINED!
 <br>
 <br>
+#Motivations
+<br>
+Other than destroying the invaders, my motivation is to work with interacting classes and arrays and solidify those concepts and become a better programmer!
+<br>
+<br>
 #Controls
 <br>
 <br>
