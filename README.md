@@ -15,6 +15,13 @@ Use your left and right keys to move your ship!
 Use the space bar to open fire! Are they closing in? Hold the space bar for Rambo mode, using your rapid fire to take out the invaders in close quarters combat!!!
 <br>
 <br>
+#Tech Stack
+<br>
+HTML
+CSS
+Javascript
+<br>
+<br>
 #Resources
 <br>
 <br>
