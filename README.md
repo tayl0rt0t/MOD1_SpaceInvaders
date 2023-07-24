@@ -9,7 +9,7 @@ Welcome to Space Invaders! Earth is in trouble. Those pesky UAPs (aka UFOs) have
 <br>
 #Motivations
 <br>
-Other than destroying the invaders, my motivation is to work with interacting classes and arrays and solidify those concepts and become a better programmer!
+Other than destroying the invaders, my motivation is to work with interacting classes and arrays and solidify those concepts to become a better programmer!
 <br>
 <br>
 #Controls
