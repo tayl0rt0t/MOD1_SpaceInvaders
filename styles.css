@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    font-family: monospace;
 }
 #screenContainer{
     display: flex;
@@ -11,4 +12,8 @@
 }
 #screen{
     margin-top: 100px;
+}
+#reset{
+    display: flex;
+    justify-content: center;
 }

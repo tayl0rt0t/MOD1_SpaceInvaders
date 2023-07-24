@@ -22,6 +22,7 @@ export default class AlienController{
         this.createEnemies();
     }
     
+    
     draw(ctx){
         this.decrementMoveDownTimer();
         this.updateDirection();
@@ -111,4 +112,8 @@ export default class AlienController{
             });
         })
     }
+    collides(player){
+        return this.enemyRows.flat().some(enemy => enemy.collides(player))
+    }
+    
 }
