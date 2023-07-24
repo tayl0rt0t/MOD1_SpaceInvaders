@@ -19,6 +19,7 @@ let isGameOver = false;
 let win = false;
 const bulletController = new BulletController(canvas);
 
+
 const alienController = new AlienController(canvas,bulletController);
 
 //functs to run in drawloop
@@ -97,11 +98,11 @@ class Player {
         this.width = playerWidth;
         this.height = playerHeight;    
         this.bulletController = bulletController;
-        
+        this.sprite = new Image();
+        this.sprite.src = 'sprites/playerShip.png'
     }
     drawPlayer(){
-        ctx.fillStyle = "green";
-        ctx.fillRect(this.x,this.y,this.width,this.height);
+        ctx.drawImage(this.sprite,this.x,this.y,this.width,this.height)
         
     }
     move(){

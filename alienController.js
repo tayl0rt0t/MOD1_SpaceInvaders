@@ -2,18 +2,18 @@ import Alien from "./alien.js";
 import moving from "./alienMovement.js";
 export default class AlienController{
     enemyArr = [
-        [1,1,1,1,1,1,1,1,1,1],
-        [1,1,1,1,1,1,1,1,1,1],
-        [1,1,1,1,1,1,1,1,1,1],
-        [1,1,1,1,1,1,1,1,1,1],
-        [1,1,1,1,1,1,1,1,1,1],
+        [3,3,1,1,2,1,1,3,3,3],
+        [3,1,2,2,1,2,2,1,3,3],
+        [2,3,1,2,2,2,1,3,3,2],
+        [3,3,3,1,2,1,3,2,2,3],
+        [2,2,3,3,1,3,3,3,2,2],
     ];
     enemyRows = [];
     direction = moving.right;
     xSpeed = 0;
     ySpeed = 0;
-    defaultXSpeed = 1;
-    defaultYSpeed = 1;
+    defaultXSpeed = 1.5;
+    defaultYSpeed = 1.5;
     moveDownTimerDefault = 30;
     moveDownTimer = this.moveDownTimerDefault;
     constructor(canvas,bulletController){
@@ -29,7 +29,6 @@ export default class AlienController{
         this.collisions();
         this.drawEnemies(ctx);
         this.resetMoveDownTimer();
-        //console.log(this.yTimer);
     }
     updateDirection(){
         for(const enemyRow of this.enemyRows){
@@ -106,7 +105,7 @@ export default class AlienController{
         this.enemyArr.forEach((row,rowIndex)=>{
             this.enemyRows[rowIndex] = [];
             row.forEach((enemyNumber,enemyIndex)=>{
-                if(enemyNumber){
+                if(enemyNumber > 0){
                     this.enemyRows[rowIndex].push(new Alien(enemyIndex * 70,rowIndex * 45, enemyNumber))
                 }
             });

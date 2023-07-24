@@ -1,19 +1,17 @@
 import Bullet from "./bullet.js";
 
 export default class Alien{
-    constructor(x,y,width,height,canvas){
-        this.canvas = canvas;
+    constructor(x,y,imageNumber){
+        
         this.x = x;
         this.y = y;
-        this.width = width;
         this.width = 32;
-        this.height = height;
         this.height = 32;
-        
+        this.image = new Image();
+        this.image.src = `sprites/a${imageNumber}.png`
     }
     draw(ctx){
-        ctx.fillStyle = "green";
-        ctx.fillRect(this.x,this.y,this.width,this.height);
+        ctx.drawImage(this.image, this.x,this.y,this.width,this.height)
     }
     shoot(){}
     move(xSpeed, ySpeed){
